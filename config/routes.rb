@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+
+  namespace :api, defaults: {format: :json} do
+    scope module: :v1 do
+      resources :users
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
